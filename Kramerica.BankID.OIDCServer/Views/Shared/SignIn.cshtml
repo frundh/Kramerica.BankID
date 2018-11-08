@@ -1,0 +1,13 @@
+﻿@using Microsoft.AspNetCore.Authentication
+
+<div class="jumbotron">
+    <h1>Identifiering</h1>
+    <p class="lead text-left">Identifiera dig med ditt Mobila BankId</p>
+    
+        <form action="/signin" method="post">
+            <input type="text" name="personalNumber"/>
+            <input type="hidden" name="ReturnUrl" value="@ViewBag.ReturnUrl" />
+            
+            <button class="btn btn-lg btn-success" type="submit">Logga in</button>
+        </form>
+</div>

@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26124.0
+MinimumVisualStudioVersion = 15.0.26124.0
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kramerica.BankID.Authentication", "Kramerica.BankID.Authentication\Kramerica.BankID.Authentication.csproj", "{6357B599-7437-4374-BE13-5F1805CC78F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kramerica.BankID.OIDCServer", "Kramerica.BankID.OIDCServer\Kramerica.BankID.OIDCServer.csproj", "{B493B510-5CDB-4FDD-9C6B-18919A3BBA5F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6357B599-7437-4374-BE13-5F1805CC78F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6357B599-7437-4374-BE13-5F1805CC78F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6357B599-7437-4374-BE13-5F1805CC78F1}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{6357B599-7437-4374-BE13-5F1805CC78F1}.Debug|x64.Build.0 = Debug|Any CPU
+		{6357B599-7437-4374-BE13-5F1805CC78F1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6357B599-7437-4374-BE13-5F1805CC78F1}.Debug|x86.Build.0 = Debug|Any CPU
+		{6357B599-7437-4374-BE13-5F1805CC78F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6357B599-7437-4374-BE13-5F1805CC78F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6357B599-7437-4374-BE13-5F1805CC78F1}.Release|x64.ActiveCfg = Release|Any CPU
+		{6357B599-7437-4374-BE13-5F1805CC78F1}.Release|x64.Build.0 = Release|Any CPU
+		{6357B599-7437-4374-BE13-5F1805CC78F1}.Release|x86.ActiveCfg = Release|Any CPU
+		{6357B599-7437-4374-BE13-5F1805CC78F1}.Release|x86.Build.0 = Release|Any CPU
+		{B493B510-5CDB-4FDD-9C6B-18919A3BBA5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B493B510-5CDB-4FDD-9C6B-18919A3BBA5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B493B510-5CDB-4FDD-9C6B-18919A3BBA5F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B493B510-5CDB-4FDD-9C6B-18919A3BBA5F}.Debug|x64.Build.0 = Debug|Any CPU
+		{B493B510-5CDB-4FDD-9C6B-18919A3BBA5F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B493B510-5CDB-4FDD-9C6B-18919A3BBA5F}.Debug|x86.Build.0 = Debug|Any CPU
+		{B493B510-5CDB-4FDD-9C6B-18919A3BBA5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B493B510-5CDB-4FDD-9C6B-18919A3BBA5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B493B510-5CDB-4FDD-9C6B-18919A3BBA5F}.Release|x64.ActiveCfg = Release|Any CPU
+		{B493B510-5CDB-4FDD-9C6B-18919A3BBA5F}.Release|x64.Build.0 = Release|Any CPU
+		{B493B510-5CDB-4FDD-9C6B-18919A3BBA5F}.Release|x86.ActiveCfg = Release|Any CPU
+		{B493B510-5CDB-4FDD-9C6B-18919A3BBA5F}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

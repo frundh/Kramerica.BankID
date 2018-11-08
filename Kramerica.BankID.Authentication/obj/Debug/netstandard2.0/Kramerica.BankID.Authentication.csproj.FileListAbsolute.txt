@@ -1,0 +1,9 @@
+C:\source\Kramerica.BankID\Kramerica.BankID.Authentication\obj\Debug\netstandard2.0\Kramerica.BankID.Authentication.csprojAssemblyReference.cache
+C:\source\Kramerica.BankID\Kramerica.BankID.Authentication\obj\Debug\netstandard2.0\Kramerica.BankID.Authentication.csproj.CoreCompileInputs.cache
+C:\source\Kramerica.BankID\Kramerica.BankID.Authentication\obj\Debug\netstandard2.0\Kramerica.BankID.Authentication.AssemblyInfoInputs.cache
+C:\source\Kramerica.BankID\Kramerica.BankID.Authentication\obj\Debug\netstandard2.0\Kramerica.BankID.Authentication.AssemblyInfo.cs
+C:\source\Kramerica.BankID\Kramerica.BankID.Authentication\bin\Debug\netstandard2.0\Kramerica.BankID.Authentication.deps.json
+C:\source\Kramerica.BankID\Kramerica.BankID.Authentication\bin\Debug\netstandard2.0\Kramerica.BankID.Authentication.dll
+C:\source\Kramerica.BankID\Kramerica.BankID.Authentication\bin\Debug\netstandard2.0\Kramerica.BankID.Authentication.pdb
+C:\source\Kramerica.BankID\Kramerica.BankID.Authentication\obj\Debug\netstandard2.0\Kramerica.BankID.Authentication.dll
+C:\source\Kramerica.BankID\Kramerica.BankID.Authentication\obj\Debug\netstandard2.0\Kramerica.BankID.Authentication.pdb
