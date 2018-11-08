@@ -1,6 +1,7 @@
-﻿//This OIDC server uses the excellent OpenID Connect/OAuth2 server framework for ASP.NET Core
-//called "AspNet.Security.OpenIdConnect.Server" (https://github.com/aspnet-contrib/AspNet.Security.OpenIdConnect.Server)
-//This is only a proof-of-concept where 
+﻿//This is a proof-of-concept OpenID Connect server built using the excellent OpenID Connect/OAuth2 server framework
+//for ASP.NET Core 'AspNet.Security.OpenIdConnect.Server - https://github.com/aspnet-contrib/AspNet.Security.OpenIdConnect.Server'
+//The real BankID stuff is implemented in the BankIDAuthenticationHandler class 
+
 using System;
 using System.Collections.Generic;
 using System.Linq;

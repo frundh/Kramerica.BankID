@@ -9,20 +9,26 @@
 
     <title>Kramerica.BankID</title>
 
-    <link href="~/stylesheets/bootstrap.min.css" rel="stylesheet" />
-    <link href="~/stylesheets/jumbotron-narrow.css" rel="stylesheet" />
+    <!-- <link rel="stylesheet" href="css/loading.css">
+    <link rel="stylesheet" href="css/loading-button.css"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/spin.js/1.2.7/spin.min.js"></script> -->
+
 </head>
 
 <body>
     <div class="container">
         <div class="header">
-            <h3 class="text-muted">Your application (Mvc.Server)</h3>
+            <h3 class="text-muted">BankID OIDC</h3>
         </div>
 
         @RenderBody()
         
         <div class="footer">
-            <p>Kramerica.BankID | Proof-of-concept OIDC IDP</p>
+            <p>Kramerica.BankID | Proof-of-concept OIDC IDP | M. Ohlsson | Uses <a href="https://github.com/aspnet-contrib/AspNet.Security.OpenIdConnect.Server">AspNet.Security.OpenIdConnect.Server</a> framework</p>
         </div>
 
     </div>
