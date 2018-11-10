@@ -3,17 +3,15 @@
 <div class="jumbotron">
     <h1>Identifiering</h1>
     <p class="lead text-left">Identifiera dig med ditt Mobila BankId</p>
-<div id="spinner"></div>    
         <form action="/signin" method="post">
             <input type="text" name="personalNumber" placeholder="Ange ditt personnummer"/>
             <input type="hidden" name="ReturnUrl" value="@ViewBag.ReturnUrl" />
-                        <button type="submit" class="btn btn-primary btn-sm" id="load" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Identifiering pågår...">Logga in</button>
+            <button type="submit" class="btn btn-primary btn-sm" id="load" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Identifiering pågår...">Logga in</button>
         </form>
-</div>
-
+    </div>
 <script>
 $('.btn').on('click', function() {
     var $this = $(this);
   $this.button('loading');
 });
-    </script>
+</script>

@@ -1,7 +1,7 @@
 ﻿//This is a proof-of-concept OpenID Connect server built using the excellent OpenID Connect/OAuth2 server framework
-//for ASP.NET Core 'AspNet.Security.OpenIdConnect.Server - https://github.com/aspnet-contrib/AspNet.Security.OpenIdConnect.Server'
+//AspNet.Security.OpenIdConnect.Server - https://github.com/aspnet-contrib/AspNet.Security.OpenIdConnect.Server
 //The real BankID stuff is implemented in the BankIDAuthenticationHandler class 
-
+//
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +19,7 @@ using Kramerica.BankID.OIDCServer.Providers;
 using Kramerica.BankID.Authentication;
 using Kramerica.BankID.Authentication.Helpers;
 using Kramerica.BankID.Authentication.Extensions;
-
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 
 namespace Kramerica.BankID.OIDCServer
 {
@@ -48,12 +48,18 @@ namespace Kramerica.BankID.OIDCServer
             {
                 options.Cookie.Name = CookieAuthenticationDefaults.CookiePrefix + "ServerCookie";
                 options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
+                //Choose Signin page with wither classic BankID with manual entry of the civicid (personnummer)
+                //or the new BankID QR-code method that is considered more secure
                 options.LoginPath = new PathString("/signin");
+                // options.LoginPath = new PathString("/signinqr");
                 options.LogoutPath = new PathString("/signout");
             })
 
             .AddBankIDAuthentication(options=> {
+                //The BankID is firewall-friendly but that means that polling of the Collect method is required.
+                //Something like a 2-3 seconds interval seems like a good compromise
                 options.CollectIntervalInMilliseconds = 2000;
+                //BankID has a maximum timeout of 30 seconds doing a Collect. Here we can set a lower value if we want to.
                 options.CollectTimeoutInMilliseconds=30000;
             })
 
@@ -77,11 +83,11 @@ namespace Kramerica.BankID.OIDCServer
 
                 // Note: to override the default access token format and use JWT, assign AccessTokenHandler:
                 //
-                // options.AccessTokenHandler = new JwtSecurityTokenHandler
-                // {
-                //     InboundClaimTypeMap = new Dictionary<string, string>(),
-                //     OutboundClaimTypeMap = new Dictionary<string, string>()
-                // };
+                options.AccessTokenHandler = new JwtSecurityTokenHandler
+                {
+                    InboundClaimTypeMap = new Dictionary<string, string>(),
+                    OutboundClaimTypeMap = new Dictionary<string, string>()
+                };
                 //
                 // Note: when using JWT as the access token format, you have to register a signing key.
                 //
@@ -89,7 +95,7 @@ namespace Kramerica.BankID.OIDCServer
                 // Tokens signed using this key are automatically invalidated and thus this method
                 // should only be used during development:
                 //
-                //options.SigningCredentials.AddEphemeralKey();
+                options.SigningCredentials.AddEphemeralKey();
                 //
                 // On production, using a X.509 certificate stored in the machine store is recommended.
                 // You can generate a self-signed certificate using Pluralsight's self-cert utility:
@@ -106,9 +112,8 @@ namespace Kramerica.BankID.OIDCServer
                 //     password: "Owin.Security.OpenIdConnect.Server");
             });
             services.AddScoped<AuthorizationProvider>();
-                        services.AddMvc();
-
-                        services.AddDistributedMemoryCache();
+            services.AddMvc();
+            services.AddDistributedMemoryCache();
             
                }
 

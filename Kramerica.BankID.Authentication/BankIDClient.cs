@@ -6,7 +6,6 @@ using Kramerica.BankID.Authentication.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
-//using static Microsoft.AspNetCore.Hosting.Internal.HostingApplication;
 
 namespace Kramerica.BankID.Authentication
 {
@@ -21,11 +20,11 @@ namespace Kramerica.BankID.Authentication
             _logger = logger;
         }
 
-        public async Task<string> Auth(string personalNumber, string endUserIP)
+        public async Task<BankIDAuthResponse> Auth(string personalNumber, string endUserIP)
         {
             try
             {
-
+                //Create the authrequest
                 var authRequest = new StringContent(JsonConvert.SerializeObject(new BankIDAuthRequest
                 {
                     personalNumber = personalNumber,
@@ -35,19 +34,20 @@ namespace Kramerica.BankID.Authentication
                 //BankID does NOT accept Charset on the Content-Type header
                 authRequest.Headers.ContentType.CharSet = String.Empty;
 
-                var authHttpResponse = await _client.PostAsync(
+                //POST BankID Auth API
+                var authHttpResponseMessage = await _client.PostAsync(
                     "auth",
                     authRequest);
 
-                authHttpResponse.EnsureSuccessStatusCode();
+                authHttpResponseMessage.EnsureSuccessStatusCode();
 
-                var authResponse = await authHttpResponse.Content.ReadAsAsync<BankIDAuthResponse>();
+                var authResponse = await authHttpResponseMessage.Content.ReadAsAsync<BankIDAuthResponse>();
 
-                return authResponse.orderRef;
+                return authResponse;
             }
             catch (Exception ex)
             {
-                _logger.LogError($"An error occurred interacting with BankID Auth API {ex.ToString()}");
+                _logger.LogError($"Error interacting with the BankID Auth API {ex.ToString()}");
                 throw;
             }
         }
@@ -56,7 +56,6 @@ namespace Kramerica.BankID.Authentication
         {
             try
             {
-
                 var collectRequest = new StringContent(JsonConvert.SerializeObject(new BankIDCollectRequest
                 {
                     orderRef = orderRef
@@ -77,7 +76,7 @@ namespace Kramerica.BankID.Authentication
             }
             catch (Exception ex)
             {
-                _logger.LogError($"An error occurred interacting with BankID Collect API {ex.ToString()}");
+                _logger.LogError($"Error interacting with the BankID Collect API {ex.ToString()}");
                 throw;
             }
 

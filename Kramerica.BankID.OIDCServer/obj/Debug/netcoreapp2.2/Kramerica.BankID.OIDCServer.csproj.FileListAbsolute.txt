@@ -28,3 +28,4 @@ C:\source\Kramerica.BankID\Kramerica.BankID.OIDCServer\obj\Debug\netcoreapp2.2\K
 C:\source\Kramerica.BankID\Kramerica.BankID.OIDCServer\obj\Debug\netcoreapp2.2\Kramerica.BankID.OIDCServer.csproj.CopyComplete
 C:\source\Kramerica.BankID\Kramerica.BankID.OIDCServer\bin\Debug\netcoreapp2.2\Kramerica.BankID.Authentication.dll
 C:\source\Kramerica.BankID\Kramerica.BankID.OIDCServer\bin\Debug\netcoreapp2.2\Kramerica.BankID.Authentication.pdb
+C:\source\Kramerica.BankID\Kramerica.BankID.OIDCServer\obj\Debug\netcoreapp2.2\Razor\Views\Shared\SignInQR.g.cshtml.cs

@@ -9,6 +9,7 @@ using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using Kramerica.BankID.Authentication.Models;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.Extensions.Primitives;
@@ -36,28 +37,40 @@ namespace Kramerica.BankID.Authentication
             BankIDCollectResponse collectResponse;
             string collectStatus = string.Empty;
 
-            if (!Request.Form.TryGetValue(BankIDAuthenticationDefaults.BankIDIdentifierFormFieldName, out personalNumberFormPostField))
-            {
-                return AuthenticateResult.Fail(new ArgumentException("{BankIDAuthenticationDefaults.BankIDIdentifier} was not found in the Form Post"));
-            }
+            //Get the personalNumber from the request
+            string orderRef = (string)Request.HttpContext.Items[BankIDAuthenticationDefaults.OrderRefPropertyName];
+            string personalNumber = (string)Request.HttpContext.Items[BankIDAuthenticationDefaults.PersonalNumberPropertyName];
 
             try
             {
-                var orderRef = await _bankIDClient.Auth(personalNumberFormPostField[0], Context.Connection.RemoteIpAddress.ToString());
-
-                var collectRequest = new BankIDCollectRequest
+                //Without either an personalNumber and orderRef there is not much to do here
+                if (orderRef == null && personalNumber == null)
                 {
-                    orderRef = orderRef
-                };
+                    return AuthenticateResult.Fail(new ArgumentException($"Neither {BankIDAuthenticationDefaults.OrderRefPropertyName} or {BankIDAuthenticationDefaults.PersonalNumberPropertyName} was not found in the request properties which is needed to do the BankID auth"));
+                }
 
+                if (orderRef == null)
+                {
+                    //Get the orrderRef number that will be used for the subsequent calls to Collect 
+                    var authResponse = await _bankIDClient.Auth(personalNumber, Context.Connection.RemoteIpAddress.ToString());
+                    orderRef = authResponse.orderRef;
+                }
+
+                //Create stopwatch to handle the max amount of time we want to wait for the collect
+                //and how long time the used should be given to finialize the BankID identification
                 var collectStopWatch = new Stopwatch();
                 collectStopWatch.Start();
 
                 do
                 {
+                    //The BankID specification states that one can not call Collect "to often". Typically this should
+                    //be something like 2000ms
                     System.Threading.Tasks.Task.Delay(Options.CollectIntervalInMilliseconds).Wait();
 
+                    //Call BankID Collect API
                     collectResponse = await _bankIDClient.Collect(orderRef);
+
+                    //The status id
                     collectStatus = collectResponse.status;
 
                     if (collectStopWatch.ElapsedMilliseconds > Options.CollectTimeoutInMilliseconds)

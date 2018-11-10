@@ -1,0 +1,19 @@
+﻿@using Microsoft.AspNetCore.Authentication
+@addTagHelper "*, Kramerica.BankID.OIDCServer"
+
+<div class="jumbotron">
+    <h1>Identifiering</h1>
+    <p class="lead text-left">Öppna BankId Appen och scanna QR koden nedan.</p>
+</div>
+        <form id="bankidqr" action="/signinqr" method="post">
+            <input type="hidden" name="autoStartToken" value="@ViewBag.AutoStartToken"/>
+            <input type="hidden" name="returnUrl" value="@ViewBag.ReturnUrl" />
+            <button type="submit" class="btn btn-primary btn-sm" id="load" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Identifiering pågår...">Logga in</button>
+        </form>
+<div>
+    <bankid-qrcode alt="QR Code" content="bankid:///?autostarttoken=@ViewBag.AutoStartToken" />
+</div>
+
+<script type="text/javascript">
+  document.forms["bankidqr"].submit();
+</script>
