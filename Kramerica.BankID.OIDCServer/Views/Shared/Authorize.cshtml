@@ -4,11 +4,11 @@
 @model Tuple<OpenIdConnectRequest, Client>
 
 <div class="jumbotron">
-    <h1>Authorization</h1>
+    <!-- <h1>Authorization</h1>
 
-    <p class="lead text-left">Do you wanna grant <strong>@Model.Item2.DisplayName</strong> an access to your resources? (scopes requested: @Model.Item1.Scope)</p>
+    <p class="lead text-left">Do you wanna grant <strong>@Model.Item2.DisplayName</strong> an access to your resources? (scopes requested: @Model.Item1.Scope)</p> -->
 
-    <form enctype="application/x-www-form-urlencoded" method="post">
+    <form id="authorize" enctype="application/x-www-form-urlencoded" method="post">
         @Html.AntiForgeryToken()
 
         @foreach (var parameter in Model.Item1.GetParameters()) {

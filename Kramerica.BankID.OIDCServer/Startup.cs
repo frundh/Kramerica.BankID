@@ -50,8 +50,8 @@ namespace Kramerica.BankID.OIDCServer
                 options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
                 //Choose Signin page with wither classic BankID with manual entry of the civicid (personnummer)
                 //or the new BankID QR-code method that is considered more secure
-                options.LoginPath = new PathString("/signin");
-                // options.LoginPath = new PathString("/signinqr");
+                // options.LoginPath = new PathString("/signin");
+                options.LoginPath = new PathString("/signinqr");
                 options.LogoutPath = new PathString("/signout");
             })
 

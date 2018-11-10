@@ -62,7 +62,12 @@ namespace Kramerica.BankID.OIDCServer.Controllers
             }
 
             // Note: in a real world application, you'd probably prefer creating a specific view model.
-            return View("Authorize", Tuple.Create(request, application));
+
+            //Kramerica.BankID modification:
+            //In this implementation we will not return the view where the user will choose to authorize.
+            //If you want the authorization dialogue use this line instead of the other ActionResult (Accept).
+            // return View("Authorize", Tuple.Create(request, application));
+            return await Accept(cancellationToken);
         }
 
         [Authorize, FormValueRequired("submit.Accept")]
