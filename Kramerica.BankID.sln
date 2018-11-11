@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kramerica.BankID.Authentica
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kramerica.BankID.OIDCServer", "Kramerica.BankID.OIDCServer\Kramerica.BankID.OIDCServer.csproj", "{B493B510-5CDB-4FDD-9C6B-18919A3BBA5F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Kramerica.BankID.Samples", "Kramerica.BankID.Samples", "{33C24502-CFB2-4651-943C-BB20FF849C79}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kramerica.BankID.Samples.Mvc", "Kramerica.BankID.Samples\Kramerica.BankID.Samples.Mvc\Kramerica.BankID.Samples.Mvc.csproj", "{3D795E4E-5AE2-472E-AB4E-299EAD50BF04}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,5 +48,20 @@ Global
 		{B493B510-5CDB-4FDD-9C6B-18919A3BBA5F}.Release|x64.Build.0 = Release|Any CPU
 		{B493B510-5CDB-4FDD-9C6B-18919A3BBA5F}.Release|x86.ActiveCfg = Release|Any CPU
 		{B493B510-5CDB-4FDD-9C6B-18919A3BBA5F}.Release|x86.Build.0 = Release|Any CPU
+		{3D795E4E-5AE2-472E-AB4E-299EAD50BF04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D795E4E-5AE2-472E-AB4E-299EAD50BF04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D795E4E-5AE2-472E-AB4E-299EAD50BF04}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{3D795E4E-5AE2-472E-AB4E-299EAD50BF04}.Debug|x64.Build.0 = Debug|Any CPU
+		{3D795E4E-5AE2-472E-AB4E-299EAD50BF04}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3D795E4E-5AE2-472E-AB4E-299EAD50BF04}.Debug|x86.Build.0 = Debug|Any CPU
+		{3D795E4E-5AE2-472E-AB4E-299EAD50BF04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D795E4E-5AE2-472E-AB4E-299EAD50BF04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D795E4E-5AE2-472E-AB4E-299EAD50BF04}.Release|x64.ActiveCfg = Release|Any CPU
+		{3D795E4E-5AE2-472E-AB4E-299EAD50BF04}.Release|x64.Build.0 = Release|Any CPU
+		{3D795E4E-5AE2-472E-AB4E-299EAD50BF04}.Release|x86.ActiveCfg = Release|Any CPU
+		{3D795E4E-5AE2-472E-AB4E-299EAD50BF04}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3D795E4E-5AE2-472E-AB4E-299EAD50BF04} = {33C24502-CFB2-4651-943C-BB20FF849C79}
 	EndGlobalSection
 EndGlobal

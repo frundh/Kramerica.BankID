@@ -27,7 +27,7 @@ namespace Kramerica.BankID.OIDCServer.Controllers
         }
 
         //Classic BankID with personalNumber entered by the user.
-        //This does not require an auth call in here
+        //Both auth and collect are done in the AuthenticateHandler
         [HttpPost("~/signin")]
         public async Task<ActionResult> SignIn(string personalNumber, string returnUrl)
         {
@@ -41,7 +41,8 @@ namespace Kramerica.BankID.OIDCServer.Controllers
                 return BadRequest();
             }
 
-            //We will set the pesonalNumber property so that the AuthenticationHandler can get it from there
+            //We will set the pesonalNumber property so that the AuthenticationHandler can get it from there.
+            //It could get it from the FORM directly but this offers some abstraction.
             Request.HttpContext.Items[BankIDAuthenticationDefaults.PersonalNumberPropertyName] = personalNumber;
 
             var result = await HttpContext.AuthenticateAsync(BankIDAuthenticationDefaults.AuthenticationScheme);
@@ -58,10 +59,10 @@ namespace Kramerica.BankID.OIDCServer.Controllers
 
         }
 
+        //The auth call is made in the controller action to get the AutoStartToken needed for the QR-code.
         [HttpGet("~/signinqr")]
         public async Task<ActionResult> GetSignInQR(string returnUrl = null)
         {
-
             if (string.IsNullOrEmpty(returnUrl))
             {
                 return BadRequest();
@@ -76,6 +77,8 @@ namespace Kramerica.BankID.OIDCServer.Controllers
 
             ViewBag.ReturnUrl = returnUrl;
             ViewBag.AutoStartToken = authResponse.autoStartToken;
+
+            //Store the orderRef in TempData
             TempData[authResponse.autoStartToken] = authResponse.orderRef;
 
             return View("SignInQR");

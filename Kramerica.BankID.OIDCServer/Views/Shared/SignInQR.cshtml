@@ -8,7 +8,6 @@
         <form id="bankidqr" action="/signinqr" method="post">
             <input type="hidden" name="autoStartToken" value="@ViewBag.AutoStartToken"/>
             <input type="hidden" name="returnUrl" value="@ViewBag.ReturnUrl" />
-            <button type="submit" class="btn btn-primary btn-sm" id="load" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Identifiering pågår...">Logga in</button>
         </form>
 <div>
     <bankid-qrcode alt="QR Code" content="bankid:///?autostarttoken=@ViewBag.AutoStartToken" />

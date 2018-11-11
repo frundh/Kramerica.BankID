@@ -106,9 +106,10 @@ namespace Kramerica.BankID.Authentication
                     new ClaimsIdentity(
                         new List<Claim>()
                         {
-                                // new Claim(ClaimTypes.Sid, collectResponse.completionData.user.personalNumber),
                                 new Claim(ClaimTypes.NameIdentifier, collectResponse.completionData.user.personalNumber),
                                 new Claim(ClaimTypes.Name, collectResponse.completionData.user.name),
+                                new Claim(BankIDAuthenticationDefaults.SignatureClaimName, collectResponse.completionData.signature, ClaimValueTypes.String, BankIDAuthenticationDefaults.BankIDIssuer),
+                                new Claim(BankIDAuthenticationDefaults.DeviceIPAddressClaimName, collectResponse.completionData.device.ipAddress, ClaimValueTypes.String, BankIDAuthenticationDefaults.BankIDIssuer)
                         }, Scheme.Name)),
                 Scheme.Name);
         }

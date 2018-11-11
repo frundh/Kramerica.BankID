@@ -74,7 +74,7 @@ namespace Kramerica.BankID.OIDCServer
                 options.LogoutEndpointPath = "/connect/logout";
                 options.TokenEndpointPath = "/connect/token";
                 options.UserinfoEndpointPath = "/connect/userinfo";
-                options.ConfigurationEndpointPath = "/oidc/.well-known/openid-configuration";
+                options.ConfigurationEndpointPath = "/.well-known/openid-configuration";
 
                 // Note: see AuthorizationController.cs for more
                 // information concerning ApplicationCanDisplayErrors.

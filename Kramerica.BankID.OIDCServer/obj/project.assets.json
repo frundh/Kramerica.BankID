@@ -12119,11 +12119,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\source\\Kramerica.BankID\\Kramerica.BankID.OIDCServer\\Kramerica.BankID.OIDCServer.csproj",
+      "projectUniqueName": "c:\\source\\Kramerica.BankID\\Kramerica.BankID.OIDCServer\\Kramerica.BankID.OIDCServer.csproj",
       "projectName": "Kramerica.BankID.OIDCServer",
-      "projectPath": "C:\\source\\Kramerica.BankID\\Kramerica.BankID.OIDCServer\\Kramerica.BankID.OIDCServer.csproj",
+      "projectPath": "c:\\source\\Kramerica.BankID\\Kramerica.BankID.OIDCServer\\Kramerica.BankID.OIDCServer.csproj",
       "packagesPath": "C:\\Users\\magnu\\.nuget\\packages\\",
-      "outputPath": "C:\\source\\Kramerica.BankID\\Kramerica.BankID.OIDCServer\\obj\\",
+      "outputPath": "c:\\source\\Kramerica.BankID\\Kramerica.BankID.OIDCServer\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -12142,8 +12142,8 @@
       "frameworks": {
         "netcoreapp2.2": {
           "projectReferences": {
-            "C:\\source\\Kramerica.BankID\\Kramerica.BankID.Authentication\\Kramerica.BankID.Authentication.csproj": {
-              "projectPath": "C:\\source\\Kramerica.BankID\\Kramerica.BankID.Authentication\\Kramerica.BankID.Authentication.csproj"
+            "c:\\source\\Kramerica.BankID\\Kramerica.BankID.Authentication\\Kramerica.BankID.Authentication.csproj": {
+              "projectPath": "c:\\source\\Kramerica.BankID\\Kramerica.BankID.Authentication\\Kramerica.BankID.Authentication.csproj"
             }
           }
         }

@@ -20,9 +20,9 @@ namespace Kramerica.BankID.OIDCServer.Config
                 
                                 new Client
                 {
-                    ClientID = "testclient2",
-                    DisplayName = "OIDC Debugger",
-                    RedirectUri = "https://oidcdebugger.com/debug",
+                    ClientID = "mvc-sample",
+                    DisplayName = "A simple sample",
+                    RedirectUri = "https://localhost:5003/signin-oidc",
                     LogoutRedirectUri = "",
                     Secret = "supersecret"
                 }
