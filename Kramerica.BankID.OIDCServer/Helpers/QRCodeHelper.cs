@@ -17,8 +17,8 @@ namespace Kramerica.BankID.OIDCServer.Helpers
         {
             var QrcodeContent = context.AllAttributes["content"].Value.ToString();
             var alt = context.AllAttributes["alt"].Value.ToString();
-            var width = 250; // width of the Qr Code
-            var height = 250; // height of the Qr Code
+            var width = Convert.ToInt32(context.AllAttributes["width"].Value.ToString());
+            var height = Convert.ToInt32(context.AllAttributes["height"].Value.ToString());
             var margin = 0;
             var qrCodeWriter = new ZXing.BarcodeWriterPixelData
             {
