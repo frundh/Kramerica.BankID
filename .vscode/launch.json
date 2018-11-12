@@ -10,7 +10,7 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/Kramerica.BankID.OIDCServer/bin/Debug/netcoreapp2.2/Kramerica.BankID.OIDCServer.dll",
+            "program": "${workspaceFolder}/Kramerica.BankID.OIDCServer/bin/Debug/netcoreapp2.1/Kramerica.BankID.OIDCServer.dll",
             "args": [],
             "cwd": "${workspaceFolder}/Kramerica.BankID.OIDCServer",
             "stopAtEntry": false,

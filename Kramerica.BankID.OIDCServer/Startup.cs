@@ -27,6 +27,7 @@ namespace Kramerica.BankID.OIDCServer
     {
         public void ConfigureServices(IServiceCollection services)
         {
+            //Setup the HttpClientFactory that will inject a typed HttpClient called BankIDClient
             services.AddHttpClient<BankIDClient>(client =>
                 {
                     client.BaseAddress = new Uri("https://appapi2.test.bankid.com/rp/v5/");
@@ -35,7 +36,10 @@ namespace Kramerica.BankID.OIDCServer
                 .ConfigurePrimaryHttpMessageHandler(h => 
                 {
                     var handler = new HttpClientHandler();
-                    handler.ClientCertificates.Add(Certificates.DownloadBankIDTestCertificate());
+                    //Set the client certificate to use against BankID. This is TESTso we will download the certificate on-the-fly. In real-world this would use Certificate Store.
+                    handler.ClientCertificates.Add(Certificates.DownloadBankIDTestCertificate().Result);
+                    //BankID test servers certificate are typically not in the trusted root store if you are on Azure. This will bypass. Do NOT use in production!
+                    handler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; };                    
                     return handler;
                 });
 
@@ -124,7 +128,6 @@ namespace Kramerica.BankID.OIDCServer
             app.UseAuthentication();
             app.UseStaticFiles();
             app.UseMvc();
-            app.UseWelcomePage();
         }
     }
 }

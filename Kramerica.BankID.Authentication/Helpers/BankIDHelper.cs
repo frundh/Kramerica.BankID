@@ -1,6 +1,7 @@
 using System.Net.Http;
 using System.Security;
 using System.Security.Cryptography.X509Certificates;
+using System.Threading.Tasks;
 
 namespace Kramerica.BankID.Authentication.Helpers
 {
@@ -11,7 +12,7 @@ namespace Kramerica.BankID.Authentication.Helpers
         //Download the TestCertificate directly from BankID. In prodcution the BankID certificate are typically stored in Windows Certificate Store
         //and the process running this application are allowed access to the private key. Here is a helper method trying to simplify test scenarios
         //where the certificate can be downloaded directly from BankID.  
-        public static X509Certificate2 DownloadBankIDTestCertificate()
+        public static async Task<X509Certificate2> DownloadBankIDTestCertificate()
         {
             var testcertpassword = new SecureString();
             testcertpassword.AppendChar('q');
@@ -23,10 +24,14 @@ namespace Kramerica.BankID.Authentication.Helpers
             testcertpassword.AppendChar('1');
             testcertpassword.AppendChar('2');
             testcertpassword.AppendChar('3');
-            return new X509Certificate2(
-                        new HttpClient().GetByteArrayAsync(BANKID_TEST_CERTIFICATE_DOWNLOAD_URL).Result, 
-                        testcertpassword);
 
+            var testCertByteArray = await new HttpClient().GetByteArrayAsync(BANKID_TEST_CERTIFICATE_DOWNLOAD_URL);
+
+            return new X509Certificate2(testCertByteArray,
+                        testcertpassword,
+                            X509KeyStorageFlags.MachineKeySet | 
+                            X509KeyStorageFlags.PersistKeySet | 
+                            X509KeyStorageFlags.Exportable);
         }
     } 
 }

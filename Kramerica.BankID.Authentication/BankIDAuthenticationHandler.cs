@@ -33,7 +33,6 @@ namespace Kramerica.BankID.Authentication
 
         protected override async Task<AuthenticateResult> HandleAuthenticateAsync()
         {
-            StringValues personalNumberFormPostField;
             BankIDCollectResponse collectResponse;
             string collectStatus = string.Empty;
 
