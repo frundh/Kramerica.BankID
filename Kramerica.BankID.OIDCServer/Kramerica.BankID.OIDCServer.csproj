@@ -19,4 +19,7 @@
     <ProjectReference Include="..\Kramerica.BankID.Authentication\Kramerica.BankID.Authentication.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <RuntimeHostConfigurationOption Include="System.Drawing.EnableUnixSupport" Value="true" />
+  </ItemGroup>
 </Project>
