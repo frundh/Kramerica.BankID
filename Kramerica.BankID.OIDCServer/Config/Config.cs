@@ -20,11 +20,11 @@ namespace Kramerica.BankID.OIDCServer.Config
                     Secret = "supersecret"
                 },
                 
-                                new Client
+                new Client
                 {
-                    ClientID = "mvc-sample",
+                    ClientID = "authorization-code-client-id",
                     DisplayName = "A simple sample",
-                    RedirectUri = "https://localhost:5003/signin-oidc",
+                    RedirectUri = "http://app.local.gd:8080/authentication/login-callback",
                     LogoutRedirectUri = "",
                     Secret = "supersecret"
                 }

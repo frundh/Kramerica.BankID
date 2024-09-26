@@ -89,14 +89,14 @@ namespace Kramerica.BankID.OIDCServer.Providers
             // You may consider relaxing it to support the resource owner password credentials grant type
             // with JavaScript or desktop applications, where client credentials cannot be safely stored.
             // In this case, call context.Skip() to inform the server middleware the client is not trusted.
-            if (string.IsNullOrEmpty(context.ClientId) || string.IsNullOrEmpty(context.ClientSecret))
-            {
-                context.Reject(
-                    error: OpenIdConnectConstants.Errors.InvalidRequest,
-                    description: "The mandatory 'client_id'/'client_secret' parameters are missing.");
-
-                return;
-            }
+            //if (string.IsNullOrEmpty(context.ClientId) || string.IsNullOrEmpty(context.ClientSecret))
+            //{
+            //    context.Reject(
+            //        error: OpenIdConnectConstants.Errors.InvalidRequest,
+            //        description: "The mandatory 'client_id'/'client_secret' parameters are missing.");
+            //
+            //    return;
+            //}
 
             // Retrieve the application details corresponding to the requested client_id.
             var application = Config.Configuration.GetClients().Where(c=> c.ClientID == context.ClientId).FirstOrDefault();
@@ -116,14 +116,14 @@ namespace Kramerica.BankID.OIDCServer.Providers
             // For that, you can use the CryptoHelper library developed by @henkmollema:
             // https://github.com/henkmollema/CryptoHelper. If you don't need .NET Core support,
             // SecurityDriven.NET/inferno is a rock-solid alternative: http://securitydriven.net/inferno/
-            if (!string.Equals(context.ClientSecret, application.Secret, StringComparison.Ordinal))
-            {
-                context.Reject(
-                    error: OpenIdConnectConstants.Errors.InvalidClient,
-                    description: "The specified client credentials are invalid.");
-
-                return;
-            }
+            //if (!string.Equals(context.ClientSecret, application.Secret, StringComparison.Ordinal))
+            //{
+            //    context.Reject(
+            //        error: OpenIdConnectConstants.Errors.InvalidClient,
+            //        description: "The specified client credentials are invalid.");
+            //
+            //    return;
+            //}
 
             context.Validate();
         }
