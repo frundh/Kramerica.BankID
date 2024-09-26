@@ -30,11 +30,11 @@ namespace Kramerica.BankID.OIDCServer.Controllers
             // is prematurely forged and added to the ASP.NET context by OpenIdConnectServerHandler.
             // You can safely remove this part and let ASOS automatically handle the unrecoverable errors
             // by switching ApplicationCanDisplayErrors to false in Startup.cs.
-            var response = HttpContext.GetOpenIdConnectResponse();
-            if (response != null)
-            {
-                return View("Error", response);
-            }
+            //var response = HttpContext.GetOpenIdConnectResponse();
+            //if (response != null)
+            //{
+            //    return View("Error", response);
+            //}
 
             // Extract the authorization request from the ASP.NET environment.
             var request = HttpContext.GetOpenIdConnectRequest();

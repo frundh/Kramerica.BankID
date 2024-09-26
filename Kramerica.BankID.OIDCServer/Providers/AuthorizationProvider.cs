@@ -29,6 +29,20 @@ namespace Kramerica.BankID.OIDCServer.Providers
                 return;
             }
 
+            // Run additional checks for prompt=none requests.
+            if (string.Equals(context.Request.Prompt, "none", StringComparison.Ordinal)) {
+                // If the user is not authenticated, return an error to the client application.
+                // See http://openid.net/specs/openid-connect-core-1_0.html#Authenticates
+                if (!context.HttpContext.User.Identities.Any(identity => identity.IsAuthenticated)) 
+                {
+                    context.Reject(
+                        error: OpenIdConnectConstants.Errors.LoginRequired,
+                        description: "The user must be authenticated.");
+
+                    return;
+                }
+            }
+
             // Note: to support custom response modes, the OpenID Connect server middleware doesn't
             // reject unknown modes before the ApplyAuthorizationResponse event is invoked.
             // To ensure invalid modes are rejected early enough, a check is made here.

@@ -82,7 +82,7 @@ namespace Kramerica.BankID.OIDCServer
 
                 // Note: see AuthorizationController.cs for more
                 // information concerning ApplicationCanDisplayErrors.
-                options.ApplicationCanDisplayErrors = true;
+                options.ApplicationCanDisplayErrors = false;
                 options.AllowInsecureHttp = true;
 
                 // Note: to override the default access token format and use JWT, assign AccessTokenHandler:
